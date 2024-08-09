@@ -9,20 +9,61 @@
 ![NMIXX](https://img.shields.io/badge/Support%20-NMIXX-lightblue)
 ![JYP](https://img.shields.io/badge/Support%20-JYP-brown)
 
-# 2024/08/08 Update README
+# 2024/08/09 Update README
 
-Welcome to the **NLP Tutorial: How to be Shakespeare?** repository! This project is aim to tell you simply how to use it and to be an educational dive into the world of Natural Language Processing (NLP), where we explore two exciting tasks: sentiment classification with BERT and text prediction with LSTM. Ready to unleash your inner Shakespeare? Let's get started! 🎉
+This update introduces a method for using unsupervised pretraining on unlabelled data before fine-tuning the model on a supervised task. The experiment shows that unsupervised pretraining significantly enhances the model's performance compared to a baseline model without such pretraining. 🎉
 
 ## 📂 Repository Structure
 
 ```plaintext
-NLP-Tutorial-How-to-be-Shakesapeare
-├── Are-You-Mad?
+NLP-Tutorial-How-to-be-Shakesapeare/
+├── Are-You-Mad?/
 │   ├── are-you-mad.ipynb
 │   └── predictions.csv
-└── Shakes-a-Peare
-    └── shakesapear.ipynb
+├── Shakes-a-Peare/
+│   └── shakesapear.ipynb
+└── Leave-Me-Alone/
+    ├── get_data.ipynb
+    ├── pretrain_with_unsupervised_data.ipynb
+    └── train.ipynb
 ```
+
+
+
+## 🆕 2024/08/09 Update: Unsupervised Pretraining for Enhanced Performance 🚀
+
+### Overview
+
+In this update, we explore the process of unsupervised pretraining using unlabelled data, followed by fine-tuning the model on a labelled dataset. The goal is to demonstrate how pretraining on unlabelled data can improve model performance in supervised tasks.
+
+### Workflow
+
+1. **Step 1: Data Preparation**: 
+   - Fetch and prepare datasets, including the unsupervised data; then apply simple preprocess.
+   ![preprocess](image.png)
+   - 📝 **Notebook**: [get_data.ipynb](Leave-Me-Alone/get_data.ipynb)
+
+2. **Step 2: Unsupervised Pretraining**: 
+   - Pretrain a BERT model on unlabelled data using tasks like Masked Language Modeling (MLM) and Next Sentence Prediction (NSP).
+   ![MLM&NSP](image-1.png)
+   - 📝 **Notebook**: [pretrain_with_unsupervised_data.ipynb](Leave-Me-Alone/pretrain_with_unsupervised_data.ipynb)
+
+3. **Step 3: Supervised Training**: 
+   - Fine-tune the pretrained model on a small subset of the IMDb dataset (5000 samples) for sentiment classification.
+   - Compare the performance with a baseline model trained without unsupervised pretraining.
+   - 📝 **Notebook**: [train.ipynb](Leave-Me-Alone/train.ipynb)
+
+
+
+### Results
+
+After training, the model pretrained with unsupervised data showed better performance compared to the baseline model trained from scratch:
+
+- **Accuracy**: Higher accuracy on the test dataset.
+- **F1 Score**: Improved F1 score, indicating better precision and recall.
+- **Conclusion**: Unsupervised pretraining provides a substantial performance boost, especially when the labelled dataset is limited.
+
+
 
 ## 🔥 Are-You-Mad?
 
